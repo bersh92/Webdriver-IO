@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "sourceMap": false,
+    "baseUrl": ".",
+    "paths": {
+      "*": [ "./*" ],
+      "src/*": ["./src/*"]
+    },
+    "typeRoots": [
+      "./wdio/types"
+    ],
+    "types": [
+      "node",
+      "@wdio/sync",
+      "@wdio/mocha-framework",
+      "./wdio/types/wdio"]
+  },
+  "include": [
+    "./wdio/**/*.ts",
+  ]
+}
