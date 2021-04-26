@@ -9,7 +9,7 @@ export class Header extends Component {
     private readonly docsLink = 'a=Docs';
 
     clickOnDocs(): void {
-        this.childElement(this.docsLink).jsClick()
+        this.childElement(this.docsLink).click()
     }
 
 }

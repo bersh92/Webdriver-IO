@@ -1,4 +1,5 @@
 import {MainPage} from "../src/pageObjects/mainPage";
+import 'should';
 
 describe('click on buttons from header', () => {
 
@@ -6,9 +7,15 @@ describe('click on buttons from header', () => {
         browser.url('https://webdriver.io');
     });
 
-    it('click on Docs', () => {
+    it('Click on Docs and check Header Text', () => {
         MainPage.header.clickOnDocs();
-        browser.pause(5000)
+        MainPage.mainInfoComponent.headerText.should.be.equal('Getting Started')
+    })
+
+    it('Open Getting Started instructions from side menu', () => {
+        MainPage.sideMenu.openSection('Introduction')
+        MainPage.sideMenu.clickOnSectionItem('Getting Started')
+        MainPage.mainInfoComponent.headerText.should.be.equal('Getting Started')
     })
 
 });
