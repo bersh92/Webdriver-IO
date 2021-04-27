@@ -4,7 +4,8 @@
   "description": "",
   "license": "ISC",
   "dependencies": {
-    "chromedriver": "^90.0.0"
+    "chromedriver": "^90.0.0",
+    "fs-extra": "9.1.0"
   },
   "devDependencies": {
     "@types/mocha": "8.0.1",
@@ -21,9 +22,11 @@
     "tsconfig-paths": "3.9.0",
     "typescript": "3.9.7",
     "wdio-chromedriver-service": "6.0.3",
-    "allure-commandline": "2.9.0"
+    "allure-commandline": "2.9.0",
+    "@rpii/wdio-html-reporter": "^6.3.2"
   },
   "scripts": {
+    "openReport": "allure open allure/allure-report",
     "test": "npx wdio run wdio.conf.js"
   }
 }

@@ -1,4 +1,5 @@
-const dragAndDrop = require('html-dnd').codeForSelectors;
+const allure = require('allure-commandline');
+const fs = require('fs-extra');
 
 exports.config = {
     //
@@ -126,7 +127,11 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec'],
+    reporters: ['spec', ['allure', {
+        outputDir: 'allure/allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: false,
+    }]],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -152,8 +157,10 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+    onPrepare: function () {
+        fs.removeSync('allure/allure-results');
+        fs.removeSync('allure/allure-report');
+    },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -218,13 +225,19 @@ exports.config = {
      * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
      * afterEach in Mocha)
      */
-    // afterHook: function (wdio, context, { error, result, duration, passed, retries }) {
-    // },
+    afterHook: function (wdio, context, { error, result, duration, passed, retries }) {
+        if (error){
+            browser.takeScreenshot();
+        }
+    },
     /**
      * Function to be executed after a wdio (in Mocha/Jasmine).
      */
-    // afterTest: function(wdio, context, { error, result, duration, passed, retries }) {
-    // },
+    afterTest: function(wdio, context, { error, result, duration, passed, retries }) {
+        if (error){
+            browser.takeScreenshot();
+        }
+    },
 
 
     /**
@@ -267,8 +280,19 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing wdio results
      */
-    // onComplete: function (exitCode, config, capabilities, results) {
-    // },
+    onComplete: function () {
+        const generation = allure(['generate', 'allure/allure-results', '-o', 'allure/allure-report']);
+        return new Promise((resolve, reject) => {
+            const generationTimeout = setTimeout(
+                () => reject(new Error('Could not generate Allure report')),
+                5000);
+            generation.on('exit', function (exitCode) {
+                clearTimeout(generationTimeout);
+                console.log('Allure report successfully generated');
+                resolve();
+            })
+        })
+    },
     /**
      * Gets executed when a refresh happens.
      * @param {String} oldSessionId session ID of the old session
