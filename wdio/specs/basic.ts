@@ -12,10 +12,17 @@ describe('click on buttons from header', () => {
         MainPage.mainInfoComponent.headerText.should.be.equal('Getting Started')
     })
 
-    it('Open Getting Started instructions from side menu', () => {
+    it('Open Getting Started instructions from side menu and check the version', () => {
         MainPage.sideMenu.openSection('Introduction')
         MainPage.sideMenu.clickOnSectionItem('Getting Started')
         MainPage.mainInfoComponent.headerText.should.be.equal('Getting Started')
+        MainPage.header.version.should.be.equal('v7')
+    })
+
+    it('Click on Contribute and check the header', () => {
+        MainPage.header.clickOnContribute();
+        MainPage.mainInfoComponent.contributeHeader.should.be.equal('Contribute');
+
     })
 
 });
