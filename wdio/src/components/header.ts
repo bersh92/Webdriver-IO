@@ -9,6 +9,7 @@ export class Header extends Component {
     private readonly docsLink = 'a=Docs';
     private readonly versionNumber = 'div[class*="items--right"] a[href="/versions"]';
     private readonly contributeButton = 'a=Contribute';
+    private readonly searchField = '[class="DocSearch-Button-Container"]';
 
     clickOnDocs(): void {
         this.childElement(this.docsLink).click()
@@ -22,4 +23,7 @@ export class Header extends Component {
         this.childElement(this.contributeButton).click()
     }
 
+    clickOnSearch(): void {
+        this.childElement(this.searchField).click()
+    }
 }
