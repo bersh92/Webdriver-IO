@@ -1,7 +1,7 @@
 import {Header} from "../components/header";
 import {MainInfoComponent} from "../components/mainInfoComponent";
 import {SideMenu} from "../components/sideMenu";
-import {SearchPopUpComponent} from "../components/SearchPopUpComponent";
+import {SearchPopUpComponent} from "../components/searchPopUpComponent";
 
 export class MainPage{
     public static get header(){return new Header()}
