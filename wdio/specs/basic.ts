@@ -23,5 +23,16 @@ describe('click on buttons from header', () => {
         MainPage.header.clickOnContribute();
         MainPage.mainInfoComponent.contributeHeader.should.be.equal('Contribute');
     })
+    
+    it('Check that it is possible to find "Click" documentation', () => {
+        MainPage.header.clickOnSearch();
+        MainPage.searchPopUpComponent.findAndOpenTheSearchResult('click');
+        MainPage.mainInfoComponent.headerText.should.be.equal('click')
+    })
 
+    it('Check that it is possible to find "Add Value" documentation', () => {
+        MainPage.header.clickOnSearch();
+        MainPage.searchPopUpComponent.findAndOpenTheSearchResult('addValue');
+        MainPage.mainInfoComponent.headerText.should.be.equal('addValue')
+    })
 });
