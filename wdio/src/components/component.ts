@@ -47,8 +47,14 @@ export abstract class Component {
                     break;
                 }
             }
-        } catch (ex) {
-            throw new Error(`Not possible to click on: "${value}" in element: ${selector}`);
+        } catch (e) {
+            {
+                if (e instanceof TypeError) {
+                    throw new Error(`Not possible to click on: "${value}" in element: ${selector}`);
+                } else {
+                    console.log('Error:', e);
+                }
+            }
         }
     }
 
@@ -61,7 +67,7 @@ export abstract class Component {
     }
 
     dragAndDropComponent(from: string, to: string): void {
-        driver.executeScript(dragAndDrop, [from, to])
+        driver.executeScript(dragAndDrop, [from, to]);
     }
 }
 
