@@ -35,4 +35,11 @@ describe('click on buttons from header', () => {
         MainPage.searchPopUpComponent.findAndOpenTheSearchResult('addValue');
         MainPage.mainInfoComponent.headerText.should.be.equal('addValue')
     })
+
+    it('Check that it is possible to find "url" documentation', () => {
+        MainPage.header.clickOnSearch();
+        MainPage.searchPopUpComponent.findAndOpenTheSearchResult('url');
+        MainPage.mainInfoComponent.headerText.should.be.equal('url')
+    })
+
 });

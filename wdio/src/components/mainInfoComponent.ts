@@ -6,7 +6,7 @@ export class MainInfoComponent extends Component {
         super(selector);
     }
 
-    private readonly header = 'h1[class="docTitle_Oumm"]';
+    private readonly header = 'h1[class*="docTitle"]';
 
     get headerText(): string {
         return this.childElement(this.header).getText().trim();
