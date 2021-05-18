@@ -27,6 +27,7 @@
   },
   "scripts": {
     "openReport": "allure open allure/allure-report",
+
     "test": "npx wdio run wdio.conf.js"
   }
 }

@@ -2,7 +2,7 @@ import {AttributeType, Component} from "./component";
 
 export class SideMenu extends Component {
 
-    constructor(selector: string = '.menu.menu--responsive.thin-scrollbar.menu_1yIk') {
+    constructor(selector: string = 'div[class*="menu menu"]') {
         super(selector);
     }
 
