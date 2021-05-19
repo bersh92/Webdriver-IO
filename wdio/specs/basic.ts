@@ -42,4 +42,12 @@ describe('click on buttons from header', () => {
         MainPage.mainInfoComponent.headerText.should.be.equal('url')
     })
 
+    it('Check that it is possible to activate the dark theme', () => {
+        MainPage.mainInfoComponent.checkDataTheme;
+        MainPage.header.clickOnDarkTheme();
+        MainPage.mainInfoComponent.dataThemeText.should.be.equal('dark')
+        MainPage.header.clickOnDarkTheme();
+        MainPage.mainInfoComponent.dataThemeText.should.be.equal('light')
+    })
+
 });
