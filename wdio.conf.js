@@ -1,5 +1,6 @@
 const allure = require('allure-commandline');
 const fs = require('fs-extra');
+const {TimelineService} = require('wdio-timeline-reporter/timeline-service');
 
 exports.config = {
     //
@@ -108,7 +109,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your wdio setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the wdio process.
-    // services: ['chromedriver'],
+    services: [[TimelineService]],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -127,17 +128,25 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec', ['allure', {
-        outputDir: 'allure/allure-results',
-        disableWebdriverStepsReporting: true,
-        disableWebdriverScreenshotsReporting: false,
-    }]],
+    reporters: ['spec',
+        ['allure', {
+            outputDir: 'allure/allure-results',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: false,
+        }],
+        ['timeline', {
+            outputDir: './timeline',
+            // Have no idea why screenshots saving is not working
+            // screenshotStrategy: 'on:error'
+        }]],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
         timeout: 300000,
+        // Have no idea why it is not working, need more investigation
+        // fullTrace: true,
         require: 'ts-node/register',
         compilers: [
             // optional
@@ -225,16 +234,16 @@ exports.config = {
      * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
      * afterEach in Mocha)
      */
-    afterHook: function (wdio, context, { error, result, duration, passed, retries }) {
-        if (error){
+    afterHook: function (wdio, context, {error, result, duration, passed, retries}) {
+        if (error) {
             browser.takeScreenshot();
         }
     },
     /**
      * Function to be executed after a wdio (in Mocha/Jasmine).
      */
-    afterTest: function(wdio, context, { error, result, duration, passed, retries }) {
-        if (error){
+    afterTest: function (wdio, context, {error, result, duration, passed, retries}) {
+        if (error) {
             browser.takeScreenshot();
         }
     },

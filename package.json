@@ -5,7 +5,8 @@
   "license": "ISC",
   "dependencies": {
     "chromedriver": "^90.0.0",
-    "fs-extra": "9.1.0"
+    "fs-extra": "9.1.0",
+    "wdio-timeline-reporter": "5.1.4"
   },
   "devDependencies": {
     "@types/mocha": "8.0.1",
@@ -27,7 +28,6 @@
   },
   "scripts": {
     "openReport": "allure open allure/allure-report",
-
     "test": "npx wdio run wdio.conf.js"
   }
 }
