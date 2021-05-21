@@ -1,6 +1,5 @@
 const allure = require('allure-commandline');
 const fs = require('fs-extra');
-const {TimelineService} = require('wdio-timeline-reporter/timeline-service');
 
 exports.config = {
     //
@@ -109,7 +108,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your wdio setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the wdio process.
-    services: [[TimelineService]],
+    // services: ['chromedriver'],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -133,12 +132,8 @@ exports.config = {
             outputDir: 'allure/allure-results',
             disableWebdriverStepsReporting: true,
             disableWebdriverScreenshotsReporting: false,
-        }],
-        ['timeline', {
-            outputDir: './timeline',
-            // Have no idea why screenshots saving is not working
-            // screenshotStrategy: 'on:error'
-        }]],
+        }]
+    ],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
