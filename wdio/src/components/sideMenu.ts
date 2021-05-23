@@ -7,7 +7,8 @@ export class SideMenu extends Component {
     }
 
     private readonly listElements = '.menu__link.menu__link--sublist';
-    private readonly listOfSubmenuItems = 'li[class="menu__list-item"] a'
+    private readonly listOfSubmenuItems = 'li[class="menu__list-item"] a';
+    private readonly listOfApiSubmenuItems = 'a[class*="menu__link "],[href="/docs/api/expect-webdriverio"]:not([class="pagination-nav__link"])';
 
     openSection(sectionName: string): void {
         this.findElementAndClick(this.listElements, AttributeType.text, sectionName)

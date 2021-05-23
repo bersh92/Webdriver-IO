@@ -50,8 +50,14 @@ describe('click on buttons from header', () => {
     it('Check the list of Docs elements texts in the Side Menu [Only for parents]', () => {
         MainPage.header.clickOnDocs();
         MainPage.sideMenu.sideMenuElementsTexts.sort().should.be.eql(listOfDocsParentVisibleElements.sort());
+    })
+
+    it('Check the list of APIs elements texts in the Side Menu [Only for parents]', () => {
         MainPage.header.clickOnApi();
         MainPage.sideMenu.sideMenuElementsTexts.sort().should.be.eql(listOfAPIParentVisibleElements.sort());
+    })
+
+    it("Check the list of Community elements texts in the Side Menu [Only for parents]", () => {
         MainPage.header.clickOnCommunity();
         MainPage.sideMenu.sideMenuCommunityItems.sort().should.be.eql(listOfCommunityParentVisivleElements.sort());
     })
