@@ -1,5 +1,10 @@
 import {MainPage} from "../src/pageObjects/mainPage";
 import 'should';
+import {it} from "mocha";
+
+let listOfDocsParentVisibleElements = ['Introduction', 'Core Concepts', 'Configuration', 'Getting Started', 'Guides', 'Testrunner', 'Migrate', 'Integration', 'Reporter', 'Services'];
+let listOfAPIParentVisibleElements = ['Introduction', 'Expect', 'Protocols', 'browser', 'element', 'mock'];
+let listOfCommunityParentVisivleElements = ['Need Help?', 'Office Hours', 'Team', 'Resources', 'Materials', 'Donate'];
 
 describe('click on buttons from header', () => {
 
@@ -23,7 +28,7 @@ describe('click on buttons from header', () => {
         MainPage.header.clickOnContribute();
         MainPage.mainInfoComponent.contributeHeader.should.be.equal('Contribute');
     })
-    
+
     it('Check that it is possible to find "Click" documentation', () => {
         MainPage.header.clickOnSearch();
         MainPage.searchPopUpComponent.findAndOpenTheSearchResult('click');
@@ -42,4 +47,12 @@ describe('click on buttons from header', () => {
         MainPage.mainInfoComponent.headerText.should.be.equal('url')
     })
 
+    it('Check the list of Docs elements texts in the Side Menu [Only for parents]', () => {
+        MainPage.header.clickOnDocs();
+        MainPage.sideMenu.sideMenuElementsTexts.sort().should.be.eql(listOfDocsParentVisibleElements.sort());
+        MainPage.header.clickOnApi();
+        MainPage.sideMenu.sideMenuElementsTexts.sort().should.be.eql(listOfAPIParentVisibleElements.sort());
+        MainPage.header.clickOnCommunity();
+        MainPage.sideMenu.sideMenuCommunityItems.sort().should.be.eql(listOfCommunityParentVisivleElements.sort());
+    })
 });
