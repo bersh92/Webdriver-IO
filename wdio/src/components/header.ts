@@ -21,7 +21,6 @@ export class Header extends Component {
         this.childElement(this.darkTheme).click()
     }
 
-
     get version(): string {
         return this.childElement(this.versionNumber).getText()
     }
