@@ -74,4 +74,5 @@ export abstract class Component {
 export abstract class Element {
     constructor(protected element: any, protected index?: number) {
     }
+
 }

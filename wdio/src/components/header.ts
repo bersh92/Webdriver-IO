@@ -10,9 +10,15 @@ export class Header extends Component {
     private readonly versionNumber = 'div[class*="items--right"] a[href="/versions"]';
     private readonly contributeButton = 'a=Contribute';
     private readonly searchField = '[class="DocSearch-Button-Container"]';
+    private readonly darkTheme = 'div[class*="react-toggle-thumb"]';
+    private readonly dataTheme = 'html[data-theme]';
 
     clickOnDocs(): void {
         this.childElement(this.docsLink).click()
+    }
+
+    clickOnDarkTheme(): void {
+        this.childElement(this.darkTheme).click()
     }
 
     get version(): string {
@@ -25,5 +31,16 @@ export class Header extends Component {
 
     clickOnSearch(): void {
         this.childElement(this.searchField).click()
+    }
+
+    get themeText(): string {
+        $(this.dataTheme).getAttribute("data-theme");
+        return $(this.dataTheme).getAttribute("data-theme");
+    }
+
+    selectTheme(theme: string): void {
+        if (this.themeText != theme) {
+            this.clickOnDarkTheme()
+        }
     }
 }

@@ -39,7 +39,13 @@ describe('click on buttons from header', () => {
     it('Check that it is possible to find "url" documentation', () => {
         MainPage.header.clickOnSearch();
         MainPage.searchPopUpComponent.findAndOpenTheSearchResult('url');
-        MainPage.mainInfoComponent.headerText.should.be.equal('url')
+        MainPage.mainInfoComponent.headerText.should.be.equal('url');
     })
 
+    it('Check that it is possible to activate the dark theme', () => {
+        MainPage.header.selectTheme("dark");
+        MainPage.header.themeText.should.be.equal('dark');
+        MainPage.header.selectTheme("light");
+        MainPage.header.themeText.should.be.equal('light');
+    })
 });
