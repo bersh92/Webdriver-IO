@@ -1,4 +1,5 @@
 import {Component} from "./component";
+import {MainPage} from "../pageObjects/mainPage";
 
 export class Header extends Component {
 
@@ -11,6 +12,7 @@ export class Header extends Component {
     private readonly contributeButton = 'a=Contribute';
     private readonly searchField = '[class="DocSearch-Button-Container"]';
     private readonly darkTheme = 'div[class*="react-toggle-thumb"]';
+    private readonly dataTheme = 'html[data-theme]';
 
     clickOnDocs(): void {
         this.childElement(this.docsLink).click()
@@ -33,4 +35,15 @@ export class Header extends Component {
         this.childElement(this.searchField).click()
     }
 
+    get themeText(): string {
+        const g =  $(this.dataTheme).getAttribute("data-theme")
+        console.log(g)
+        return $(this.dataTheme).getAttribute("data-theme");
+    }
+
+    selectTheme(theme: string): void {
+        if (this.themeText != theme) {
+            this.clickOnDarkTheme()
+        }
+    }
 }

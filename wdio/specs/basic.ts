@@ -43,11 +43,9 @@ describe('click on buttons from header', () => {
     })
 
     it('Check that it is possible to activate the dark theme', () => {
-        MainPage.mainInfoComponent.checkDataTheme;
-        MainPage.header.clickOnDarkTheme();
-        MainPage.mainInfoComponent.dataThemeText.should.be.equal('dark')
-        MainPage.header.clickOnDarkTheme();
-        MainPage.mainInfoComponent.dataThemeText.should.be.equal('light')
+        MainPage.header.selectTheme("dark");
+        MainPage.header.themeText.should.be.equal('dark');
+        MainPage.header.selectTheme("light");
+        MainPage.header.themeText.should.be.equal('light');
     })
-
 });
