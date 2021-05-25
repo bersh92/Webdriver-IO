@@ -1,5 +1,4 @@
 import {Component} from "./component";
-import {MainPage} from "../pageObjects/mainPage";
 
 export class MainInfoComponent extends Component {
 

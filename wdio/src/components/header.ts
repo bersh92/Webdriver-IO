@@ -1,5 +1,4 @@
 import {Component} from "./component";
-import {MainPage} from "../pageObjects/mainPage";
 
 export class Header extends Component {
 
@@ -36,8 +35,7 @@ export class Header extends Component {
     }
 
     get themeText(): string {
-        const g =  $(this.dataTheme).getAttribute("data-theme")
-        console.log(g)
+        $(this.dataTheme).getAttribute("data-theme");
         return $(this.dataTheme).getAttribute("data-theme");
     }
 
