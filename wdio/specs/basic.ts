@@ -1,10 +1,9 @@
 import {MainPage} from "../src/pageObjects/mainPage";
 import 'should';
-import {it} from "mocha";
 
-let listOfDocsParentVisibleElements = ['Introduction', 'Core Concepts', 'Configuration', 'Getting Started', 'Guides', 'Testrunner', 'Migrate', 'Integration', 'Reporter', 'Services'];
-let listOfAPIParentVisibleElements = ['Introduction', 'Expect', 'Protocols', 'browser', 'element', 'mock'];
-let listOfCommunityParentVisivleElements = ['Need Help?', 'Office Hours', 'Team', 'Resources', 'Materials', 'Donate'];
+const listOfDocsParentVisibleElements = ['Introduction', 'Core Concepts', 'Configuration', 'Getting Started', 'Guides', 'Testrunner', 'Migrate', 'Integration', 'Reporter', 'Services'];
+const listOfAPIParentVisibleElements = ['Introduction', 'Expect', 'Protocols', 'browser', 'element', 'mock'];
+const listOfCommunityParentVisibleElements = ['Need Help?', 'Office Hours', 'Team', 'Resources', 'Materials', 'Donate'];
 
 describe('click on buttons from header', () => {
 
@@ -59,6 +58,6 @@ describe('click on buttons from header', () => {
 
     it("Check the list of Community elements texts in the Side Menu [Only for parents]", () => {
         MainPage.header.clickOnCommunity();
-        MainPage.sideMenu.sideMenuCommunityItems.sort().should.be.eql(listOfCommunityParentVisivleElements.sort());
+        MainPage.sideMenu.sideMenuCommunityItems.sort().should.be.eql(listOfCommunityParentVisibleElements.sort());
     })
 });
