@@ -50,7 +50,7 @@ describe('click on buttons from header', () => {
     })
 
     it('Check elements in the bottom of the page', function () {
-        MainPage.bottomMenu.listOfText.should.be.eql(['Getting Started',
+        MainPage.bottomMenu.listOfBottomMenu.should.be.eql(['Getting Started',
             'API Reference',
             'Contribute',
             'Help',

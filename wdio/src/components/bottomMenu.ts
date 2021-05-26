@@ -8,7 +8,7 @@ export class BottomMenu extends Component {
 
     private readonly listOfItems = 'li[class="footer__item"] a';
 
-    get listOfText(): string[] {
+    get listOfBottomMenu(): string[] {
          return this.childElementsTexts(this.listOfItems);
     }
 }
