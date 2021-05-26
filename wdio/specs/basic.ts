@@ -48,4 +48,20 @@ describe('click on buttons from header', () => {
         MainPage.header.selectTheme("light");
         MainPage.header.themeText.should.be.equal('light');
     })
+
+    it('Check elements in the bottom of the page', function () {
+        MainPage.bottomMenu.listOfText.should.be.eql(['Getting Started',
+            'API Reference',
+            'Contribute',
+            'Help',
+            'Stack Overflow',
+            'Support Chat',
+            'Slack',
+            'Twitter',
+            'Tidelift Subscription',
+            'Donate to WebdriverIO',
+            'Swag Store',
+            'Blog',
+            'GitHub']);
+    })
 });
