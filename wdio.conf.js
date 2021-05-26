@@ -127,17 +127,21 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec', ['allure', {
-        outputDir: 'allure/allure-results',
-        disableWebdriverStepsReporting: true,
-        disableWebdriverScreenshotsReporting: false,
-    }]],
+    reporters: ['spec',
+        ['allure', {
+            outputDir: 'allure/allure-results',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: false,
+        }]
+    ],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
         timeout: 300000,
+        // Have no idea why it is not working, need more investigation
+        // fullTrace: true,
         require: 'ts-node/register',
         compilers: [
             // optional
@@ -225,16 +229,16 @@ exports.config = {
      * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
      * afterEach in Mocha)
      */
-    afterHook: function (wdio, context, { error, result, duration, passed, retries }) {
-        if (error){
+    afterHook: function (wdio, context, {error, result, duration, passed, retries}) {
+        if (error) {
             browser.takeScreenshot();
         }
     },
     /**
      * Function to be executed after a wdio (in Mocha/Jasmine).
      */
-    afterTest: function(wdio, context, { error, result, duration, passed, retries }) {
-        if (error){
+    afterTest: function (wdio, context, {error, result, duration, passed, retries}) {
+        if (error) {
             browser.takeScreenshot();
         }
     },

@@ -43,7 +43,7 @@ describe('click on buttons from header', () => {
     it('Check that it is possible to find "url" documentation', () => {
         MainPage.header.clickOnSearch();
         MainPage.searchPopUpComponent.findAndOpenTheSearchResult('url');
-        MainPage.mainInfoComponent.headerText.should.be.equal('url')
+        MainPage.mainInfoComponent.headerText.should.be.equal('url');
     })
 
     it('Check the list of Docs elements texts in the Side Menu [Only for parents]', () => {
@@ -59,5 +59,12 @@ describe('click on buttons from header', () => {
     it("Check the list of Community elements texts in the Side Menu [Only for parents]", () => {
         MainPage.header.clickOnCommunity();
         MainPage.sideMenu.sideMenuCommunityItems.sort().should.be.eql(listOfCommunityParentVisibleElements.sort());
+    })
+
+    it('Check that it is possible to activate the dark theme', () => {
+        MainPage.header.selectTheme("dark");
+        MainPage.header.themeText.should.be.equal('dark');
+        MainPage.header.selectTheme("light");
+        MainPage.header.themeText.should.be.equal('light');
     })
 });

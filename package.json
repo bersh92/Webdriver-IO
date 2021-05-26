@@ -22,12 +22,10 @@
     "tsconfig-paths": "3.9.0",
     "typescript": "3.9.7",
     "wdio-chromedriver-service": "6.0.3",
-    "allure-commandline": "2.9.0",
-    "@rpii/wdio-html-reporter": "^6.3.2"
+    "allure-commandline": "2.9.0"
   },
   "scripts": {
     "openReport": "allure open allure/allure-report",
-
     "test": "npx wdio run wdio.conf.js"
   }
 }

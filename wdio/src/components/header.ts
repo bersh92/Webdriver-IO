@@ -12,9 +12,15 @@ export class Header extends Component {
     private readonly searchField = '[class="DocSearch-Button-Container"]';
     private readonly apiLink = 'a=API';
     private readonly communityLink = 'a=Community';
+    private readonly darkTheme = 'div[class*="react-toggle-thumb"]';
+    private readonly dataTheme = 'html[data-theme]';
 
     clickOnDocs(): void {
         this.childElement(this.docsLink).click()
+    }
+
+    clickOnDarkTheme(): void {
+        this.childElement(this.darkTheme).click()
     }
 
     get version(): string {
@@ -35,5 +41,16 @@ export class Header extends Component {
 
     clickOnCommunity(): void {
         this.childElement(this.communityLink).click();
+    }
+
+    get themeText(): string {
+        $(this.dataTheme).getAttribute("data-theme");
+        return $(this.dataTheme).getAttribute("data-theme");
+    }
+
+    selectTheme(theme: string): void {
+        if (this.themeText != theme) {
+            this.clickOnDarkTheme()
+        }
     }
 }
