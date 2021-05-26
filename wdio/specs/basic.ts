@@ -1,6 +1,20 @@
 import {MainPage} from "../src/pageObjects/mainPage";
 import 'should';
 
+const bottomMenuLists: string[] = ['Getting Started',
+    'API Reference',
+    'Contribute',
+    'Help',
+    'Stack Overflow',
+    'Support Chat',
+    'Slack',
+    'Twitter',
+    'Tidelift Subscription',
+    'Donate to WebdriverIO',
+    'Swag Store',
+    'Blog',
+    'GitHub'];
+
 describe('click on buttons from header', () => {
 
     before(function () {
@@ -50,18 +64,6 @@ describe('click on buttons from header', () => {
     })
 
     it('Check elements in the bottom of the page', function () {
-        MainPage.bottomMenu.listOfBottomMenu.should.be.eql(['Getting Started',
-            'API Reference',
-            'Contribute',
-            'Help',
-            'Stack Overflow',
-            'Support Chat',
-            'Slack',
-            'Twitter',
-            'Tidelift Subscription',
-            'Donate to WebdriverIO',
-            'Swag Store',
-            'Blog',
-            'GitHub']);
+        MainPage.bottomMenu.listOfBottomMenu.should.be.eql(bottomMenuLists);
     })
 });
