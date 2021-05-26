@@ -1,6 +1,10 @@
 import {MainPage} from "../src/pageObjects/mainPage";
 import 'should';
 
+const listOfDocsParentVisibleElements = ['Introduction', 'Core Concepts', 'Configuration', 'Getting Started', 'Guides', 'Testrunner', 'Migrate', 'Integration', 'Reporter', 'Services'];
+const listOfAPIParentVisibleElements = ['Introduction', 'Expect', 'Protocols', 'browser', 'element', 'mock'];
+const listOfCommunityParentVisibleElements = ['Need Help?', 'Office Hours', 'Team', 'Resources', 'Materials', 'Donate'];
+
 describe('click on buttons from header', () => {
 
     before(function () {
@@ -23,7 +27,7 @@ describe('click on buttons from header', () => {
         MainPage.header.clickOnContribute();
         MainPage.mainInfoComponent.contributeHeader.should.be.equal('Contribute');
     })
-    
+
     it('Check that it is possible to find "Click" documentation', () => {
         MainPage.header.clickOnSearch();
         MainPage.searchPopUpComponent.findAndOpenTheSearchResult('click');
@@ -40,6 +44,21 @@ describe('click on buttons from header', () => {
         MainPage.header.clickOnSearch();
         MainPage.searchPopUpComponent.findAndOpenTheSearchResult('url');
         MainPage.mainInfoComponent.headerText.should.be.equal('url');
+    })
+
+    it('Check the list of Docs elements texts in the Side Menu [Only for parents]', () => {
+        MainPage.header.clickOnDocs();
+        MainPage.sideMenu.sideMenuElementsTexts.sort().should.be.eql(listOfDocsParentVisibleElements.sort());
+    })
+
+    it('Check the list of APIs elements texts in the Side Menu [Only for parents]', () => {
+        MainPage.header.clickOnApi();
+        MainPage.sideMenu.sideMenuElementsTexts.sort().should.be.eql(listOfAPIParentVisibleElements.sort());
+    })
+
+    it("Check the list of Community elements texts in the Side Menu [Only for parents]", () => {
+        MainPage.header.clickOnCommunity();
+        MainPage.sideMenu.sideMenuCommunityItems.sort().should.be.eql(listOfCommunityParentVisibleElements.sort());
     })
 
     it('Check that it is possible to activate the dark theme', () => {
