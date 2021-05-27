@@ -1,6 +1,8 @@
 import {MainPage} from "../src/pageObjects/mainPage";
 import 'should';
 
+const bottomMenuLists = ['Getting Started', 'API Reference', 'Contribute', 'Help', 'Stack Overflow', 'Support Chat', 'Slack', 'Twitter', 'Tidelift Subscription', 'Donate to WebdriverIO', 'Swag Store', 'Blog', 'GitHub'];
+
 const listOfDocsParentVisibleElements = ['Introduction', 'Core Concepts', 'Configuration', 'Getting Started', 'Guides', 'Testrunner', 'Migrate', 'Integration', 'Reporter', 'Services'];
 const listOfAPIParentVisibleElements = ['Introduction', 'Expect', 'Protocols', 'browser', 'element', 'mock'];
 const listOfCommunityParentVisibleElements = ['Need Help?', 'Office Hours', 'Team', 'Resources', 'Materials', 'Donate'];
@@ -66,5 +68,9 @@ describe('click on buttons from header', () => {
         MainPage.header.themeText.should.be.equal('dark');
         MainPage.header.selectTheme("light");
         MainPage.header.themeText.should.be.equal('light');
+    })
+
+    it('Check elements in the bottom of the page', function () {
+        MainPage.bottomMenu.listOfBottomMenu.should.be.eql(bottomMenuLists);
     })
 });
