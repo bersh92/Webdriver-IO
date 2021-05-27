@@ -1,19 +1,7 @@
 import {MainPage} from "../src/pageObjects/mainPage";
 import 'should';
 
-const bottomMenuLists: string[] = ['Getting Started',
-    'API Reference',
-    'Contribute',
-    'Help',
-    'Stack Overflow',
-    'Support Chat',
-    'Slack',
-    'Twitter',
-    'Tidelift Subscription',
-    'Donate to WebdriverIO',
-    'Swag Store',
-    'Blog',
-    'GitHub'];
+const bottomMenuLists = ['Getting Started', 'API Reference', 'Contribute', 'Help', 'Stack Overflow', 'Support Chat', 'Slack', 'Twitter', 'Tidelift Subscription', 'Donate to WebdriverIO', 'Swag Store', 'Blog', 'GitHub'];
 
 describe('click on buttons from header', () => {
 
