@@ -73,4 +73,24 @@ describe('click on buttons from header', () => {
     it('Check elements in the bottom of the page', function () {
         MainPage.bottomMenu.listOfBottomMenu.should.be.eql(bottomMenuLists);
     })
+
+    it('Click on "Getting Started" on the bottom menu and check that opened "Getting Started" page', function () {
+        MainPage.bottomMenu.clickOnGettingStartedButton();
+        MainPage.mainInfoComponent.contributeHeader.should.be.equal('Getting Started');
+    });
+
+    it('Click on "API Reference" on the bottom menu and check that opened "Introduction" page', function () {
+        MainPage.bottomMenu.clickOnApiReferenceButton();
+        MainPage.mainInfoComponent.contributeHeader.should.be.equal('Introduction');
+    });
+
+    it('Click on "Contribute" on the bottom menu and check that opened "Contribute" page', function () {
+        MainPage.bottomMenu.clickOnContributeButton();
+        MainPage.mainInfoComponent.contributeHeader.should.be.equal('Contribute');
+    });
+
+    it('Click on "Help" on the bottom menu and check that opened "Help" page', function () {
+        MainPage.bottomMenu.clickOnHelpButton();
+        MainPage.mainInfoComponent.contributeHeader.should.be.equal('Need Help?');
+    });
 });
