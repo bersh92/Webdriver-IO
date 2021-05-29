@@ -7,10 +7,10 @@ export class BottomMenu extends Component {
     }
 
     private readonly listOfItems = 'li[class="footer__item"] a';
-    private readonly gettingStartedButton = '//a[text()="Getting Started"]';
-    private readonly apiReferenceButton = '//a[text()="API Reference"]';
-    private readonly contributeButton = '//a[text()="Contribute"]';
-    private readonly helpButton = '//a[text()="Help"]';
+    private readonly gettingStartedButton = 'a=Getting Started';
+    private readonly apiReferenceButton = 'a=API Reference';
+    private readonly contributeButton = 'a=Contribute';
+    private readonly helpButton = 'a=Help';
 
     get listOfBottomMenu(): string[] {
          return this.childElementsTexts(this.listOfItems);
