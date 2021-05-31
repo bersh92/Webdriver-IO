@@ -6,29 +6,18 @@ export class BottomMenu extends Component {
         super(selector);
     }
 
-    private readonly listOfItems = 'li[class="footer__item"] a';
-    private readonly gettingStartedButton = 'a=Getting Started';
-    private readonly apiReferenceButton = 'a=API Reference';
-    private readonly contributeButton = 'a=Contribute';
-    private readonly helpButton = 'a=Help';
+    private readonly listOfItems = 'div[class="row footer__links"]';
+    private readonly listOfSubmenuItems = 'li[class="footer__item"] a';
 
     get listOfBottomMenu(): string[] {
-         return this.childElementsTexts(this.listOfItems);
+        return this.childElementsTexts(this.listOfSubmenuItems);
     }
 
-    clickOnGettingStartedButton(): void {
-        this.childElement(this.gettingStartedButton).click()
+    openSection(sectionName: string): void {
+        this.findElementAndClick(this.listOfItems, AttributeType.text, sectionName)
     }
 
-    clickOnApiReferenceButton(): void {
-        this.childElement(this.apiReferenceButton).click()
-    }
-
-    clickOnContributeButton(): void {
-        this.childElement(this.contributeButton).click()
-    }
-
-    clickOnHelpButton(): void {
-        this.childElement(this.helpButton).click()
+    clickOnSectionItem(sectionItem: string): void {
+        this.findElementAndClick(this.listOfSubmenuItems, AttributeType.text, sectionItem)
     }
 }
