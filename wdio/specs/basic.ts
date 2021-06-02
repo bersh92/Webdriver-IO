@@ -86,11 +86,11 @@ describe('click on buttons from header', () => {
 
     it('Click on "Contribute" on the bottom menu and check that opened "Contribute" page', function () {
         MainPage.bottomMenu.clickOnSectionItem('Contribute');
-        MainPage.mainInfoComponent.contributeHeader.should.be.equal('Contribute');
+        MainPage.mainInfoComponent.headerText.should.be.equal('Contribute');
     });
 
     it('Click on "Help" on the bottom menu and check that opened "Help" page', function () {
         MainPage.bottomMenu.clickOnSectionItem('Help');
-        MainPage.mainInfoComponent.contributeHeader.should.be.equal('Need Help?');
+        MainPage.mainInfoComponent.headerText.should.be.equal('Need Help?');
     });
 });

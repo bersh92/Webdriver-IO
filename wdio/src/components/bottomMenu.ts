@@ -13,10 +13,6 @@ export class BottomMenu extends Component {
         return this.childElementsTexts(this.listOfSubmenuItems);
     }
 
-    openSection(sectionName: string): void {
-        this.findElementAndClick(this.listOfItems, AttributeType.text, sectionName)
-    }
-
     clickOnSectionItem(sectionItem: string): void {
         this.findElementAndClick(this.listOfSubmenuItems, AttributeType.text, sectionItem)
     }
