@@ -11,8 +11,4 @@ export class MainInfoComponent extends Component {
     get headerText(): string {
         return this.childElement(this.header).getText().trim();
     }
-
-    get contributeHeader(): string {
-        return this.childElement(this.header).getText()
-    }
 }

@@ -14,6 +14,6 @@ export class BottomMenu extends Component {
     }
 
     clickOnSectionItem(sectionItem: string): void {
-        this.findElementAndClick(this.listOfSubmenuItems, AttributeType.text, sectionItem)
+        this.findElementAndClick(this.listOfSubmenuItems, AttributeType.text, sectionItem);
     }
 }

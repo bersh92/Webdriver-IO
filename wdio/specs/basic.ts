@@ -27,7 +27,7 @@ describe('click on buttons from header', () => {
 
     it('Click on Contribute and check the header', () => {
         MainPage.header.clickOnContribute();
-        MainPage.mainInfoComponent.contributeHeader.should.be.equal('Contribute');
+        MainPage.mainInfoComponent.headerText.should.be.equal('Contribute');
     })
 
     it('Check that it is possible to find "Click" documentation', () => {
