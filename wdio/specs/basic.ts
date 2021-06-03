@@ -15,68 +15,68 @@ describe('click on buttons from header', () => {
 
     it('Click on Docs and check Header Text', () => {
         MainPage.header.clickOnDocs();
-        MainPage.mainInfoComponent.headerText.should.be.equal('Getting Started')
-    })
+        MainPage.mainInfoComponent.headerText.should.be.equal('Getting Started');
+    });
 
     it('Open Getting Started instructions from side menu and check the version', () => {
-        MainPage.sideMenu.openSection('Introduction')
-        MainPage.sideMenu.clickOnSectionItem('Getting Started')
-        MainPage.mainInfoComponent.headerText.should.be.equal('Getting Started')
-        MainPage.header.version.should.be.equal('v7')
-    })
+        MainPage.sideMenu.openSection('Introduction');
+        MainPage.sideMenu.clickOnSectionItem('Getting Started');
+        MainPage.mainInfoComponent.headerText.should.be.equal('Getting Started');
+        MainPage.header.version.should.be.equal('v7');
+    });
 
     it('Click on Contribute and check the header', () => {
         MainPage.header.clickOnContribute();
         MainPage.mainInfoComponent.headerText.should.be.equal('Contribute');
-    })
+    });
 
     it('Check that it is possible to find "Click" documentation', () => {
         MainPage.header.clickOnSearch();
         MainPage.searchPopUpComponent.findAndOpenTheSearchResult('click');
-        MainPage.mainInfoComponent.headerText.should.be.equal('click')
-    })
+        MainPage.mainInfoComponent.headerText.should.be.equal('click');
+    });
 
     it('Check that it is possible to find "Add Value" documentation', () => {
         MainPage.header.clickOnSearch();
         MainPage.searchPopUpComponent.findAndOpenTheSearchResult('addValue');
-        MainPage.mainInfoComponent.headerText.should.be.equal('addValue')
-    })
+        MainPage.mainInfoComponent.headerText.should.be.equal('addValue');
+    });
 
     it('Check that it is possible to find "url" documentation', () => {
         MainPage.header.clickOnSearch();
         MainPage.searchPopUpComponent.findAndOpenTheSearchResult('url');
         MainPage.mainInfoComponent.headerText.should.be.equal('url');
-    })
+    });
 
     it('Check the list of Docs elements texts in the Side Menu [Only for parents]', () => {
         MainPage.header.clickOnDocs();
         MainPage.sideMenu.sideMenuElementsTexts.sort().should.be.eql(listOfDocsParentVisibleElements.sort());
-    })
+    });
 
     it('Check the list of APIs elements texts in the Side Menu [Only for parents]', () => {
         MainPage.header.clickOnApi();
         MainPage.sideMenu.sideMenuElementsTexts.sort().should.be.eql(listOfAPIParentVisibleElements.sort());
-    })
+    });
 
     it("Check the list of Community elements texts in the Side Menu [Only for parents]", () => {
         MainPage.header.clickOnCommunity();
         MainPage.sideMenu.sideMenuCommunityItems.sort().should.be.eql(listOfCommunityParentVisibleElements.sort());
-    })
+    });
 
     it('Check that it is possible to activate the dark theme', () => {
         MainPage.header.selectTheme("dark");
         MainPage.header.themeText.should.be.equal('dark');
         MainPage.header.selectTheme("light");
         MainPage.header.themeText.should.be.equal('light');
-    })
+    });
 
     it('Check elements in the bottom of the page', function () {
         MainPage.bottomMenu.listOfBottomMenu.should.be.eql(bottomMenuLists);
-    })
+    });
 
     it('Click on "Getting Started" on the bottom menu and check that opened "Getting Started" page', function () {
-        MainPage.bottomMenu.clickOnSectionItem('Getting Started')
-        MainPage.mainInfoComponent.headerText.should.be.equal('Getting Started')
+        MainPage.bottomMenu.clickOnSectionItem('Getting Started');
+        MainPage.mainInfoComponent.headerText.should.be.equal('Getting Started');
     });
 
     it('Click on "API Reference" on the bottom menu and check that opened "Introduction" page', function () {

@@ -10,4 +10,6 @@ export class MainPage{
     public static get sideMenu(){return new SideMenu()}
     public static get searchPopUpComponent(){return new SearchPopUpComponent()}
     public static get bottomMenu(){return new BottomMenu()}
+
+
 }

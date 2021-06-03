@@ -2,6 +2,7 @@ const allure = require('allure-commandline');
 const fs = require('fs-extra');
 
 exports.config = {
+    baseUrl: 'https://webdriver.io',
     //
     // ====================
     // Runner Configuration
@@ -20,7 +21,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './wdio/specs/**/*.ts'
+        './wdio/specs/testBottomMenu.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -92,7 +93,6 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
