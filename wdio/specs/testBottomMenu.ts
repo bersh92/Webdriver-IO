@@ -30,7 +30,7 @@ describe('click on buttons from bottom menu', () => {
 
     it('Click on "Tidelift Subscription"', function () {
         MainPage.bottomMenu.clickOnSectionItem('Tidelift Subscription');
-        Utils.getTabUrl('https://webdriver.io/docs/enterprise/').should.containEql('webdriver.io')
+        Utils.getTabUrl('https://webdriver.io/docs/enterprise/').should.containEql('webdriver.io/docs/enterprise')
     });
 
     it('Click on "Donate to WebdriverIO"', function () {
