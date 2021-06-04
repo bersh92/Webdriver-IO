@@ -6,9 +6,14 @@ export class BottomMenu extends Component {
         super(selector);
     }
 
-    private readonly listOfItems = 'li[class="footer__item"] a';
+    private readonly listOfItems = 'div[class="row footer__links"]';
+    private readonly listOfSubmenuItems = 'li[class="footer__item"] a';
 
     get listOfBottomMenu(): string[] {
-         return this.childElementsTexts(this.listOfItems);
+        return this.childElementsTexts(this.listOfSubmenuItems);
+    }
+
+    clickOnSectionItem(sectionItem: string): void {
+        this.findElementAndClick(this.listOfSubmenuItems, AttributeType.text, sectionItem);
     }
 }
